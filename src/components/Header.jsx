@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Loading from '../pages/Loading';
 
 const userAPI = require('../services/userAPI');
@@ -31,12 +32,16 @@ class Header extends React.Component {
     } = this.state;
 
     return (
-      loading
-        ? <Loading /> : (
+      <div>
+        { loading ? <Loading /> : (
           <header data-testid="header-component">
             <h2 data-testid="header-user-name">{ userName.name }</h2>
           </header>
-        )
+        )}
+        <Link to="/search" data-testid="link-to-search">Pesquisa</Link>
+        <Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link>
+        <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+      </div>
     );
   }
 }
