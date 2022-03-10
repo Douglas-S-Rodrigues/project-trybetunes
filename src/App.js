@@ -31,7 +31,7 @@ class App extends React.Component {
             <Route path="/profile" exact>
               <Profile />
             </Route>
-            <Route path="/profile/edit">
+            <Route path="/profile/edit" exact>
               <ProfileEdit />
             </Route>
             <Route path="/Loading">

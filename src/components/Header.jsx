@@ -1,46 +1,44 @@
-// import React from 'react';
-// import { getUser } from '../services/userAPI';
-// import Loading from '../pages/Loading';
+import React from 'react';
+import Loading from '../pages/Loading';
 
-// class Header extends React.Component {
-//   constructor() {
-//     super();
-//     this.state({
-//       usarName: '',
-//       loading: false,
-//     });
-//   }
+const userAPI = require('../services/userAPI');
 
-//   logUser = async () => {
-//     this.setState({
-//       loading: true,
-//     });
-//     const { userName } = this.state;
-//     await getUser({ user: userName });
-//     this.setState({
-//       loading: false,
-//     });
-//   }
+class Header extends React.Component {
+  constructor() {
+    super();
 
-//   render() {
-//     const {
-//       loading,
-//       userName,
-//     } = this.state;
+    this.state = {
+      userName: '',
+      loading: false,
+    };
+  }
 
-//     return (
-//       <div>
-//         {
-//           loading
-//             ? <Loading /> : (
-//               <header data-testid="header-component">
-//                 <p>{ userName }</p>
-//               </header>
-//             )
-//         }
-//       </div>
-//     );
-//   }
-// }
+  componentDidMount() {
+    this.setState({
+      loading: true,
 
-// export default Header;
+    }, async () => {
+      this.setState({
+        userName: await userAPI.getUser(),
+        loading: false });
+    });
+  }
+
+  render() {
+    const {
+      loading,
+      userName,
+    } = this.state;
+
+    return (
+      loading
+        ? <Loading /> : (
+          <header data-testid="header-component">
+            <h2 data-testid="header-user-name">{ userName.name }</h2>
+          </header>
+        )
+    );
+  }
+}
+
+export default Header;
