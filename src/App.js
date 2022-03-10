@@ -8,6 +8,7 @@ import Favorites from './pages/Favorites';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './pages/NotFound';
+import Loading from './pages/Loading';
 
 class App extends React.Component {
   render() {
@@ -32,6 +33,9 @@ class App extends React.Component {
             </Route>
             <Route path="/profile/edit">
               <ProfileEdit />
+            </Route>
+            <Route path="/Loading">
+              <Loading />
             </Route>
             <Route path="*">
               <NotFound />
