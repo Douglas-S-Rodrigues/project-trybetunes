@@ -67,7 +67,7 @@ class Login extends React.Component {
                 Entrar
               </button>
             </form>)}
-        { save && <Redirect to="/search" /> } 
+        { save && <Redirect to="/search" /> }
         {/* https://v5.reactrouter.com/web/api/Redirect */}
       </div>
     );
