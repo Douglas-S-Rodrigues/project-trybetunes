@@ -41,6 +41,8 @@ class Album extends React.Component {
                   <MusicCard
                     musicName={ music.trackName }
                     player={ music.previewUrl }
+                    id={ music.trackId }
+                    array={ music }
                   />
                 </div>))}
           </div>
