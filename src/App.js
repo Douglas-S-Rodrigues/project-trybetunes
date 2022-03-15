@@ -22,9 +22,10 @@ class App extends React.Component {
             <Route path="/search">
               <Search />
             </Route>
-            <Route path="/album/:id">
-              <Album />
-            </Route>
+            <Route
+              path="/album/:id"
+              render={ (props) => <Album { ...props } /> }
+            />
             <Route path="/favorites">
               <Favorites />
             </Route>
